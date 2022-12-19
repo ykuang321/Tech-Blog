@@ -6,7 +6,7 @@ class Blog extends Model {}
 Blog.init(
   {
     id: {
-      type: Datatype.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,      
