@@ -28,11 +28,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
-// Present one blog
-router.get('/blog/:id', withAuth, async (req, res) => {
+// Present one blog when user click on it
+router.get('/blog/:id', async (req, res) => {
   try {
-    // Get all blogs and JOIN with user data
     const blogData = await Blog.findByPK(req.params.id, {
       include: [
         {
@@ -41,15 +39,18 @@ router.get('/blog/:id', withAuth, async (req, res) => {
         },
       ],
     });
+    console.log(blogData);
 
-    // Serialize data so the template can read it
     const blog = blogData.get({ plain: true });
-blog
-    // Pass serialized data and session flag into template
-    res.render('blog', {
-      ...blog, 
-      logged_in: req.session.logged_in 
-    });
+
+    console.log(blog);
+
+    res.status(200).json(blogData);
+
+    // res.render('blog', {
+    //   ...blog, 
+    //   logged_in: req.session.logged_in 
+    // });
   } catch (err) {
     res.status(500).json(err);
   }
