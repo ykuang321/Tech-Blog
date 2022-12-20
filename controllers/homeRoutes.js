@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Present all existing blog posts at homepage
@@ -39,13 +39,8 @@ router.get('/blog/:id', async (req, res) => {
         },
       ],
     });
-    console.log(blogData);
 
     const blog = blogData.get({ plain: true });
-
-    console.log(blog);
-
-    res.status(200).json(blogData);
 
     res.render('blog', {
       blog, 
