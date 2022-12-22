@@ -1,9 +1,48 @@
 <div class="text-center">
+  {{!-- Display Select Blog --}}
   <div class="card">
     <h2 class="card-header">{{title}}</h2>
     <p>{{description}}</p>
     <p>Created by {{user.name}} on {{format_date date_created}}</p>
   </div>
-    <p>  This is my     {{comments.[0].comment}}</p>
+
+  {{!-- Display Current Comments With Delete Button --}}
+  {{#if comments.length}}
+  <div class="text-center comment-list">
+    <h3>Curren Comments:</h3>
+
+    {{#each comments as |comment|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4>{{comment.comment}} {{format_date comment.date_created}} </h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{comment.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
 </div>
 
+  {{!-- Add New Comment --}}
+<div>
+
+    <h3>New Comment:</h3>
+
+     <form class="form new-comment-form">
+      <div class="form-group">
+        <input class="form-input" type="comment" id="new-comment" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">+ Comment</button>
+      </div>
+    </form>
+
+</div>
+
+
+
+</div>
+
+<script src="../js/comment.js"></script>
