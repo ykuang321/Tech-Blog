@@ -1,5 +1,9 @@
 <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <div class="card">
+    <h2 class="card-header">{{title}}</h2>
+    <p>{{description}}</p>
+    <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  </div>
+    <p>  This is my     {{comments.[0].comment}}</p>
 </div>
+

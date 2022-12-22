@@ -1,0 +1,16 @@
+<div>
+  {{#each this}}
+    <div class="card">
+        <h3 class="card-header"></h3>
+        <section class="comment card-body">
+            <div class="text">
+              <p>  {{comment.comment}} </p>
+                            <p>  {{comments.comment}} </p>
+            </div>
+            <div class="meta">
+            <p>   {{user.name}}, {{format_date date_created}} </p>
+            </div>
+        </section>
+    </div>
+  {{/each}}
+</div>

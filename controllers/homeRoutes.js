@@ -31,19 +31,28 @@ router.get('/', async (req, res) => {
 // Present one blog when user click on it
 router.get('/blog/:id', async (req, res) => {
   try {
-    const blogData = await Blog.findByPK(req.params.id, {
+    const blogData = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment,
+          attributes: [
+            'comment',
+            'date_created',
+            'user_id',
+            'blog_id',
+          ],
+        },
       ],
     });
 
     const blog = blogData.get({ plain: true });
-
+    console.log(blog);
     res.render('blog', {
-      blog, 
+      ...blog, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
