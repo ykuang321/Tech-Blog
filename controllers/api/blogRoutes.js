@@ -3,7 +3,7 @@ const { Blog, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Present all existing blog posts at homepage
-router.get('/', async (req, res) => {
+router.get('/addBlog', async (req, res) => {
   try {
     // Get all blogs and JOIN with user data
     const blogData = await Blog.findAll({
@@ -28,39 +28,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// //Present one blog when user click on it
-// router.get('/:id', async (req, res) => {
-//   try {
-//     const blogData = await Blog.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//         {
-//           model: Comment,
-//           attributes: [
-//             'id',
-//             'comment',
-//             'date_created',
-//             'user_id',
-//             'blog_id',
-//           ],
-//         },
-//       ],
-//     });
-
-//     const blog = blogData.get({ plain: true });
-
-//     res.render('?????', {
-//       ...blog, 
-//       logged_in: req.session.logged_in 
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
+// Create Blog 
 router.post('/', async (req, res) => {
   try {
     const newBlog = await Blog.create({
@@ -74,21 +42,22 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Delete Blog 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const BlogData = await Blog.destroy({
+    const blogData = await Blog.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!BlogData) {
+    if (!blogData) {
       res.status(404).json({ message: 'No Blog found with this id!' });
       return;
     }
 
-    res.status(200).json(BlogData);
+    res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
   }

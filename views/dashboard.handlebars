@@ -4,7 +4,7 @@
 <div class="row mb-4 blog">
   <div class="col-md-5">
     <h2>
-      <a href="/blogs/{{blog.id}}">{{blog.title}}</a>
+      <a href="/blog/{{blog.id}}">{{blog.title}}</a>
     </h2>
     <p>{{blog.description}}</p>
   </div>
@@ -12,4 +12,4 @@
 {{/each}}
 {{/if}}
 
-<a href="/blog/new">Add New Blog</a>
+<a href="/api/blog/addBlog">Add New Blog</a>

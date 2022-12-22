@@ -1,15 +1,15 @@
 <div class="text-center">
-  {{!-- Display Select Blog --}}
+  {{!-- Display Selected Blog --}}
   <div class="card">
     <h2 class="card-header">{{title}}</h2>
     <p>{{description}}</p>
     <p>Created by {{user.name}} on {{format_date date_created}}</p>
   </div>
 
-  {{!-- Display Current Comments With Delete Button --}}
+  {{!-- Display Comments With Delete Button --}}
   {{#if comments.length}}
   <div class="text-center comment-list">
-    <h3>Curren Comments:</h3>
+    <h3>Previous Comments:</h3>
 
     {{#each comments as |comment|}}
     <div class="row mb-2">
@@ -44,6 +44,6 @@
 
 <script src="../js/comment.js"></script>
 
-{{#if logged_in}}
+{{!-- {{#if logged_in}}
 <script src="./js/logout.js"></script>
-{{/if}}
+{{/if}} --}}
