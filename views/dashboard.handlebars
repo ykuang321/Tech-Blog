@@ -1,19 +1,15 @@
-<!-- Loop over each object in the blogs array -->
+<!-- Loop over each object in the blogs array if the use has blog entered -->
+{{#if blogs.length}}
 {{#each blogs as |blog| }}
 <div class="row mb-4 blog">
   <div class="col-md-5">
     <h2>
       <a href="/blogs/{{blog.id}}">{{blog.title}}</a>
     </h2>
-    <p>Created by {{blog.user.name}} on {{format_date blog.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{blog.description}}
-    </p>
+    <p>{{blog.description}}</p>
   </div>
 </div>
 {{/each}}
+{{/if}}
 
-<button type="submit" class="no-button"><a href="/api/dashboard/addBlog">Add New Blog</a></button>
-
+<a href="/blog/new">Add New Blog</a>

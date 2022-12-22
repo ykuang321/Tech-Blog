@@ -14,12 +14,12 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-    console.log(blogData);
+
     // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', {
+    res.render('addBlog', {
       blogs, 
       logged_in: req.session.logged_in 
     });
@@ -28,28 +28,38 @@ router.get('/', async (req, res) => {
   }
 });
 
-//Present one blog when user click on it
-router.get('/:id', async (req, res) => {
-  try {
-    const blogData = await Blog.findByPK(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+// //Present one blog when user click on it
+// router.get('/:id', async (req, res) => {
+//   try {
+//     const blogData = await Blog.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//         {
+//           model: Comment,
+//           attributes: [
+//             'id',
+//             'comment',
+//             'date_created',
+//             'user_id',
+//             'blog_id',
+//           ],
+//         },
+//       ],
+//     });
 
-    const blog = blogData.get({ plain: true });
+//     const blog = blogData.get({ plain: true });
 
-    res.render('blog', {
-      blog, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('?????', {
+//       ...blog, 
+//       logged_in: req.session.logged_in 
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.post('/', async (req, res) => {
   try {
