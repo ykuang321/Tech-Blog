@@ -17,10 +17,31 @@ header, .project:not(:last-child) {
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+
+header {
+  padding: 40px;
+  text-align: center;
+  background: var(--primary);
+  color: var(--light);
+}
+
+header nav{
+  margin: 10px;
+  float: right;
+  align-items: center;
+}
+
+/*define navigation bar listed item style*/
+header li{
+  display: inline-block;
+  list-style-type: none;
+  margin: 10px;
+}
+
+/*change background color when user hover the item*/
+header nav li:hover{
+  background-color: rgb(143, 143, 218);
+  cursor: pointer;
 }
 
 
