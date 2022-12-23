@@ -1,14 +1,12 @@
 <!-- Loop over each object in the blogs array if the use has blog entered -->
+<div class="card">
 {{#if blogs.length}}
 {{#each blogs as |blog| }}
-  <div class="card">
-    <h2 class="card-header">
+    <h2 class="card-header text-light">
       <a href="/dashboard/update/{{blog.id}}">{{blog.title}}</a>
     </h2>
     <p>{{blog.description}}</p>
-
 {{/each}}
 {{/if}}
-
 <button class="btn btn-primary" type="submit"><a href="/dashboard/addBlog">+ Add New Blog</a></button>
 </div>

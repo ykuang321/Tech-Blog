@@ -4,7 +4,9 @@ const withAuth = require('../utils/auth');
 
 // Pass to a different page
 router.get('/addBlog', withAuth, (req, res) => {
-  res.render('addBlog');
+  res.render('addBlog', {
+    logged_in: req.session.logged_in
+  });
 });
 
 // Get blog data based on the id and then pass to a different page

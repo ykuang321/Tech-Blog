@@ -13,7 +13,7 @@
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
-      <h1 class="text center">Tech Blog</h1>
+      <h1>Tech Blog</h1>
       <nav>
         <ul>
         <li><a href="/">Home</a></li>
@@ -38,9 +38,9 @@
   </div>
 
   <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="./js/logout.js"></script>
-  {{/if}}
+{{#if logged_in}}
+<script src="./js/logout.js"></script>
+{{/if}}
 </body>
 
 </html>
