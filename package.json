@@ -1,6 +1,10 @@
 {
   "name": "module14",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.x",
+    "npm": "8.x"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -17,9 +21,9 @@
     "data-types": "^1.0.10",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "express-handlebars": "^5.2.0",
+    "express-handlebars": "^5.3.5",
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.27.0"
+    "sequelize": "^6.28.0"
   }
 }
