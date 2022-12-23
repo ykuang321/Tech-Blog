@@ -61,6 +61,7 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
+// Dashboard 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -73,13 +74,14 @@ router.get('/dashboard', withAuth, async (req, res) => {
     console.log('The user data is ' + userData);
     res.render('dashboard', {
       ...user,
-      logged_in: true
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// Login Page
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -90,7 +92,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-
+// Signup Page
 router.get('/signup', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {

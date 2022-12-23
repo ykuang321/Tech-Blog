@@ -1,0 +1,19 @@
+<div class="card">
+    <h3 class="card-header text-center">Edit Blog</h3>
+    <form class="card-body edit-blog-form" id="edit-blog-form">
+        <div class="form-floating mb-3">
+        <h4 for="blog-title" class="form-label">Blog Title</h4>
+        <input name="blog-title" type="text" placeholder="{{title}}" class="form-input w-100" id="new-title"/>
+        </div>
+
+        <div class="form-floating mb-3">
+        <h4 class="form-label" for="content">Blog Content</h4>
+        <textarea name="content" type="text" placeholder="{{description}}" class="form-input w-100" style="height: 300px" id="new-description"/></textarea>
+        </div>
+
+        <button type="click" class="btn btn-primary" data-id="{{id}}">Update Blog</button>
+        <button type="submit" class="btn btn-danger" data-id="{{id}}">Delete Blog</button>
+    </form>
+</div>
+
+<script src="/js/edit.js"></script>

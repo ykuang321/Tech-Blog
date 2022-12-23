@@ -3,7 +3,7 @@ const { Blog, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Create a new comment
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
 
   try {
     const newComment = await Comment.create({
@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
 });
 
 // Delete a comment
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.destroy({
       where: {
