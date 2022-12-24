@@ -21,7 +21,7 @@ Create a CMS-style blog site similar to a Wordpress site, where developers can p
 
 ## Preview
 
-[*Heroku Live URL*](https://git.heroku.com/tech-blog-ykuang.git)
+[*Heroku Live URL*](https://tech-blog-ykuang.herokuapp.com)
 
 *Main Page:*
 
