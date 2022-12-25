@@ -3,10 +3,7 @@ const newComment = async (event) => {
 
   // Collect values from the comment form
   const comment = document.querySelector('#new-comment').value.trim();
-  const blog_id = window.location.toString().split("/")
-  [
-    window.location.toString().split("/").length - 1
-  ];
+  const blog_id = document.getElementById("blogId").getAttribute("data-blog");
 
   if (comment) {
     // Send a POST request to the API endpoint
@@ -26,6 +23,7 @@ const newComment = async (event) => {
 };
 
 const deleteComment = async (event) => {
+
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
@@ -45,6 +43,6 @@ document
   .querySelector('.new-comment-form')
   .addEventListener('submit', newComment);
 
-  document
-  .querySelector('.comment-list')
-  .addEventListener('click', deleteComment);
+document
+.querySelector('.comment-list')
+.addEventListener('click', deleteComment);

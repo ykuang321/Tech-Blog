@@ -32,7 +32,7 @@ router.get('/update/:id', withAuth, async (req, res) => {
     });
 
     const blog = blogData.get({ plain: true });
-    console.log(blog);
+
     res.render('editBlog', {
       ...blog, 
       logged_in: req.session.logged_in

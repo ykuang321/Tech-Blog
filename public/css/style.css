@@ -92,3 +92,10 @@ header nav li:hover{
   color: var(--light);
 }
 
+.row {
+  white-space: pre-wrap;
+  height: 80px;
+  border: 1px solid black;
+  font-weight: bold;
+  margin: 20px;
+}

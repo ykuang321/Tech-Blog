@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 });
 
 // Present one blog when user click on it
-router.get('/blog/:id', async (req, res) => {
+router.get('/blog/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
