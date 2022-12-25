@@ -88,8 +88,6 @@ header nav li:hover{
   font-size: 1rem;
   font-weight: bold;
   padding: 10px;
-  background: var(--primary);
-  color: var(--light);
 }
 
 .row {

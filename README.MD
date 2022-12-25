@@ -35,11 +35,15 @@ Create a CMS-style blog site similar to a Wordpress site, where developers can p
 
 ![LOGIN PAGE](/public/image/Login.jpg)
 
+*My Dashboard:*
+
+![ADD NEW BLOG](/public/image/My_Dashboard.jpg)
+
 *Add New Blog:*
 
 ![ADD NEW BLOG](/public/image/Add_New_Blog.jpg)
 
-*Add New Comment:*
+*Add Comment:*
 
 ![ADD NEW COMMENT](/public/image/Add_Comment.jpg)
 

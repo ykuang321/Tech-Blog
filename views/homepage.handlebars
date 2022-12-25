@@ -1,10 +1,12 @@
 <!-- Loop over each object in the blogs array -->
 {{#each blogs as |blog| }}
   <div class="card">
-    <h2 class="card-header">
+    <h2 class="card-header text-center">
       <a href="/blog/{{blog.id}}">{{blog.title}}</a>
     </h2>
-    <p>Created by {{user.name}} on {{format_date blog.date_created}}</p>
-    <p>{{blog.description}}</p>
+    <div style="border: 1px solid black;">
+    <p class="comment">{{blog.description}}</p>
+    <p class="comment text-secondary">Created by {{user.name}} on {{format_date blog.date_created}}</p>
+    </div>
   </div>
 {{/each}}
