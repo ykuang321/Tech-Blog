@@ -9,7 +9,7 @@ const updateBlog = async (event) => {
     const response = await fetch(`/api/blog/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
-        post_id: id,
+        blog_id: id,
         title,
         description,
       }),
@@ -21,7 +21,7 @@ const updateBlog = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to delete project');
+      alert('Failed to update blog');
     }
   }
 };
@@ -39,7 +39,7 @@ const deleteBlog = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to delete project');
+      alert('Failed to delete blog');
     }
   }
 };
